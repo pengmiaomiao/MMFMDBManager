@@ -34,18 +34,6 @@
             block(key,keyAttributes);
         }
         [array addObject:@[key,keyAttributes]];
-        /*
-//        TODO:访问属性的声明属性
-        unsigned int count = 0;
-        objc_property_attribute_t *attrbutes = property_copyAttributeList(property, &count);
-        for (int j = 0; j<count; j++) {
-            objc_property_attribute_t attribute = attrbutes[j];
-            const char *name = attribute.name;
-            const char *value = attribute.value;
-            NSLog(@"name:%s   value:%s",name,value);
-        }
-        free(attrbutes);
-         */
     }
     free(properties);
     return array;
@@ -72,18 +60,6 @@
             block(key,keyAttributes);
         }
         [array addObject:@[key,keyAttributes]];
-        /*
-         //        TODO:访问属性的声明属性
-         unsigned int count = 0;
-         objc_property_attribute_t *attrbutes = property_copyAttributeList(property, &count);
-         for (int j = 0; j<count; j++) {
-         objc_property_attribute_t attribute = attrbutes[j];
-         const char *name = attribute.name;
-         const char *value = attribute.value;
-         NSLog(@"name:%s   value:%s",name,value);
-         }
-         free(attrbutes);
-         */
     }
     free(properties);
     return array;
@@ -107,12 +83,6 @@
     }
     free(ivars);
     return array;
-}
-#pragma mark - 转字典
--(NSDictionary *)toDictionary{
-    NSMutableDictionary *dict = [NSMutableDictionary new];
-    NSArray *array = [self getAllProperties:nil];
-    return dict;
 }
 #pragma mark - 给属性赋值
 -(void)setPropertyWithSEL:(SEL)setter forValue:(id)value{
